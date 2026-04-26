@@ -1,479 +1,1010 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Our Team · Group Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --neon-cyan: #00f5ff;
-    --neon-pink: #ff00c8;
-    --neon-purple: #bf00ff;
-    --neon-green: #00ff88;
-    --neon-amber: #ffaa00;
-    --dark: #050510;
-    --dark2: #0a0a1f;
-    --dark3: #0f0f2e;
-    --glass: rgba(255,255,255,0.03);
-    --glass-border: rgba(0,245,255,0.12);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Rajdhani',sans-serif; background:var(--dark); color:#fff; overflow-x:hidden; cursor:none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Team · Group Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --neon-cyan: #00f5ff;
+      --neon-pink: #ff00c8;
+      --neon-purple: #bf00ff;
+      --neon-green: #00ff88;
+      --neon-amber: #ffaa00;
+      --dark: #050510;
+      --dark2: #0a0a1f;
+      --dark3: #0f0f2e;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(0, 245, 255, 0.12);
+    }
 
-  /* Cursor */
-  .cursor { position:fixed; width:10px; height:10px; background:var(--neon-cyan); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); box-shadow:0 0 10px var(--neon-cyan); mix-blend-mode:screen; }
-  .cursor-ring { position:fixed; width:36px; height:36px; border:1px solid rgba(0,245,255,0.4); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .2s,height .2s; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body::before { content:''; position:fixed; inset:0; z-index:0; background-image:linear-gradient(rgba(0,245,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,0.03) 1px,transparent 1px); background-size:60px 60px; animation:gridMove 20s linear infinite; }
-  @keyframes gridMove { 0%{background-position:0 0;} 100%{background-position:60px 60px;} }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-  .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; opacity:.15; }
-  .orb1 { width:400px; height:400px; background:var(--neon-purple); top:-80px; right:-80px; animation:orbF 14s ease-in-out infinite; }
-  .orb2 { width:350px; height:350px; background:var(--neon-cyan); bottom:-80px; left:-80px; animation:orbF 10s ease-in-out infinite reverse; }
-  @keyframes orbF { 0%,100%{transform:translate(0,0);} 50%{transform:translate(20px,-30px);} }
+    /* Cursor */
+    .cursor {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--neon-cyan);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--neon-cyan);
+      mix-blend-mode: screen;
+    }
 
-  /* Nav */
-  nav { position:fixed; top:0; width:100%; z-index:100; padding:18px 60px; display:flex; justify-content:space-between; align-items:center; background:rgba(5,5,16,0.75); backdrop-filter:blur(20px); border-bottom:1px solid rgba(0,245,255,0.07); }
-  .logo { font-family:'Orbitron',monospace; font-size:18px; font-weight:900; background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:2px; text-decoration:none; }
-  nav ul { list-style:none; display:flex; gap:32px; }
-  nav a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase; transition:color .3s; }
-  nav a:hover,nav a.active { color:var(--neon-cyan); }
+    .cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(0, 245, 255, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+    }
 
-  /* Page header */
-  .page-header {
-    position:relative; z-index:1; padding:160px 60px 80px; text-align:center;
-  }
-  .page-tag { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--neon-cyan); margin-bottom:14px; display:block; }
-  .page-title { font-family:'Orbitron',monospace; font-size:clamp(36px,6vw,72px); font-weight:900; line-height:1.1; }
-  .page-title span { background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple),var(--neon-pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  .page-sub { font-size:17px; color:rgba(255,255,255,0.4); margin-top:16px; max-width:500px; margin-left:auto; margin-right:auto; }
-  .title-line { width:80px; height:2px; background:linear-gradient(90deg,transparent,var(--neon-cyan),transparent); margin:20px auto 0; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
 
-  /* Team grid */
-  .team-section { position:relative; z-index:1; padding:20px 60px 120px; }
-  .team-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
 
-  /* Member card */
-  .member-card {
-    background:var(--glass); border:1px solid var(--glass-border);
-    border-radius:16px; overflow:hidden;
-    transition:all .4s; position:relative;
-    cursor:pointer;
-  }
-  .member-card::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    opacity:0; transition:opacity .3s;
-  }
-  .member-card:nth-child(1)::before { background:linear-gradient(90deg,transparent,var(--neon-cyan),transparent); }
-  .member-card:nth-child(2)::before { background:linear-gradient(90deg,transparent,var(--neon-pink),transparent); }
-  .member-card:nth-child(3)::before { background:linear-gradient(90deg,transparent,var(--neon-purple),transparent); }
-  .member-card:nth-child(4)::before { background:linear-gradient(90deg,transparent,var(--neon-green),transparent); }
-  .member-card:nth-child(5)::before { background:linear-gradient(90deg,transparent,var(--neon-amber),transparent); }
-  .member-card:nth-child(6)::before { background:linear-gradient(90deg,transparent,var(--neon-pink),transparent); }
-  .member-card:hover { transform:translateY(-8px); border-color:rgba(0,245,255,0.25); background:rgba(0,245,255,0.03); }
-  .member-card:hover::before { opacity:1; }
+      100% {
+        background-position: 60px 60px;
+      }
+    }
 
-  /* Photo area */
-  .card-photo {
-    width:100%; height:240px; position:relative; overflow:hidden;
-    background:linear-gradient(135deg,var(--dark2),var(--dark3));
-    display:flex; align-items:center; justify-content:center;
-  }
-  .card-photo img { width:100%; height:100%; object-fit:cover; opacity:.85; transition:opacity .4s,transform .6s; }
-  .member-card:hover .card-photo img { opacity:1; transform:scale(1.05); }
-  .photo-placeholder {
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-    width:100%; height:100%; color:rgba(255,255,255,0.2);
-  }
-  .photo-placeholder-icon {
-    width:64px; height:64px; border-radius:50%;
-    border:2px dashed rgba(0,245,255,0.2);
-    display:flex; align-items:center; justify-content:center;
-    font-size:28px;
-  }
-  .photo-placeholder-text { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(0,245,255,0.3); }
-  .add-photo-hint {
-    position:absolute; top:12px; right:12px;
-    background:rgba(0,245,255,0.1); border:1px solid rgba(0,245,255,0.2);
-    border-radius:6px; padding:4px 10px; font-size:11px; color:var(--neon-cyan); letter-spacing:1px;
-  }
-  .card-number {
-    position:absolute; top:14px; left:14px;
-    font-family:'Orbitron',monospace; font-size:11px; font-weight:700;
-    color:rgba(255,255,255,0.3); letter-spacing:2px;
-  }
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .15;
+    }
 
-  /* Card body */
-  .card-body { padding:24px; }
-  .member-name { font-family:'Orbitron',monospace; font-size:16px; font-weight:700; color:#fff; margin-bottom:4px; }
-  .member-role { font-size:13px; color:rgba(255,255,255,0.4); letter-spacing:1px; margin-bottom:16px; }
-  .card-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
-  .tag { font-size:11px; padding:3px 10px; border-radius:99px; letter-spacing:1px; font-weight:600; }
-  .tag-cyan { background:rgba(0,245,255,0.08); border:1px solid rgba(0,245,255,0.2); color:var(--neon-cyan); }
-  .tag-pink { background:rgba(255,0,200,0.08); border:1px solid rgba(255,0,200,0.2); color:var(--neon-pink); }
-  .tag-purple { background:rgba(191,0,255,0.08); border:1px solid rgba(191,0,255,0.2); color:var(--neon-purple); }
-  .tag-green { background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.2); color:var(--neon-green); }
-  .tag-amber { background:rgba(255,170,0,0.08); border:1px solid rgba(255,170,0,0.2); color:var(--neon-amber); }
-  .card-cta {
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    color:rgba(255,255,255,0.3); transition:color .3s;
-  }
-  .member-card:hover .card-cta { color:var(--neon-cyan); }
-  .cta-arrow { transition:transform .3s; }
-  .member-card:hover .cta-arrow { transform:translateX(4px); }
+    .orb1 {
+      width: 400px;
+      height: 400px;
+      background: var(--neon-purple);
+      top: -80px;
+      right: -80px;
+      animation: orbF 14s ease-in-out infinite;
+    }
 
-  /* PROFILE PAGE */
-  .profile-page { display:none; position:relative; z-index:1; min-height:100vh; }
-  .profile-page.active { display:block; }
-  .team-section.hidden { display:none; }
+    .orb2 {
+      width: 350px;
+      height: 350px;
+      background: var(--neon-cyan);
+      bottom: -80px;
+      left: -80px;
+      animation: orbF 10s ease-in-out infinite reverse;
+    }
 
-  .back-btn {
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4);
-    background:none; border:none; cursor:pointer; font-family:'Rajdhani',sans-serif;
-    padding:0; margin-bottom:40px; transition:color .3s;
-  }
-  .back-btn:hover { color:var(--neon-cyan); }
+    @keyframes orbF {
 
-  .profile-hero {
-    max-width:1100px; margin:0 auto; padding:40px 60px 80px;
-    display:grid; grid-template-columns:380px 1fr; gap:60px; align-items:start;
-  }
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
 
-  .profile-photo-box {
-    border-radius:16px; overflow:hidden; position:relative;
-    border:1px solid rgba(0,245,255,0.15);
-    background:linear-gradient(135deg,var(--dark2),var(--dark3));
-  }
-  .profile-photo-box img { width:100%; display:block; opacity:.9; }
-  .profile-photo-placeholder {
-    height:460px; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:14px;
-  }
-  .profile-photo-placeholder .big-icon { font-size:60px; opacity:.3; }
-  .profile-photo-placeholder .hint { font-size:13px; color:rgba(0,245,255,0.4); letter-spacing:2px; text-transform:uppercase; }
-  .profile-glow {
-    position:absolute; bottom:0; left:0; right:0; height:150px;
-    background:linear-gradient(to top, var(--dark), transparent);
-    pointer-events:none;
-  }
+      50% {
+        transform: translate(20px, -30px);
+      }
+    }
 
-  .profile-info { padding-top:10px; }
-  .profile-num { font-family:'Orbitron',monospace; font-size:11px; color:rgba(0,245,255,0.5); letter-spacing:3px; margin-bottom:8px; }
-  .profile-name { font-family:'Orbitron',monospace; font-size:clamp(28px,4vw,46px); font-weight:900; color:#fff; line-height:1.1; margin-bottom:8px; }
-  .profile-role { font-size:18px; color:rgba(255,255,255,0.4); margin-bottom:24px; font-weight:400; }
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 5, 16, 0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 245, 255, 0.07);
+    }
 
-  .neon-divider { width:100%; height:1px; background:linear-gradient(90deg,var(--neon-cyan),transparent); margin-bottom:28px; opacity:.3; }
+    .logo {
+      font-family: 'Orbitron', monospace;
+      font-size: 18px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
 
-  .info-row { display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
-  .info-pill {
-    display:flex; align-items:center; gap:8px;
-    background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.12);
-    border-radius:8px; padding:10px 16px;
-    font-size:14px; color:rgba(255,255,255,0.6);
-  }
-  .info-pill .icon { font-size:16px; }
-  .info-pill strong { color:#fff; font-weight:600; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
 
-  .section-tag-sm { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--neon-cyan); margin-bottom:10px; display:block; }
-  .profile-bio { font-size:16px; line-height:1.9; color:rgba(255,255,255,0.55); margin-bottom:32px; }
-  .profile-bio em { color:rgba(255,255,255,0.8); font-style:normal; font-weight:500; }
+    nav a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color .3s;
+    }
 
-  .skills-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
-  .skill-chip {
-    font-size:13px; padding:6px 14px; border-radius:6px; font-weight:600;
-    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
-    color:rgba(255,255,255,0.7); transition:all .3s;
-  }
-  .skill-chip:hover { border-color:rgba(0,245,255,0.4); color:var(--neon-cyan); background:rgba(0,245,255,0.06); }
+    nav a:hover,
+    nav a.active {
+      color: var(--neon-cyan);
+    }
 
-  .contrib-box {
-    background:rgba(0,245,255,0.03); border:1px solid rgba(0,245,255,0.12);
-    border-radius:12px; padding:24px;
-  }
-  .contrib-box p { font-size:15px; line-height:1.9; color:rgba(255,255,255,0.55); }
+    /* Page header */
+    .page-header {
+      position: relative;
+      z-index: 1;
+      padding: 160px 60px 80px;
+      text-align: center;
+    }
 
-  /* Placeholder note */
-  .placeholder-note {
-    background:rgba(255,170,0,0.06); border:1px dashed rgba(255,170,0,0.25);
-    border-radius:8px; padding:14px 18px; font-size:13px; color:rgba(255,170,0,0.7);
-    margin-bottom:20px; letter-spacing:0.5px;
-  }
+    .page-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      margin-bottom: 14px;
+      display: block;
+    }
 
-  footer { position:relative; z-index:1; border-top:1px solid rgba(0,245,255,0.08); padding:36px 60px; display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.4); }
-  .logo-small { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  footer p { font-size:12px; color:rgba(255,255,255,0.25); }
+    .page-title {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+    }
 
-  @media(max-width:900px) {
-    .team-grid { grid-template-columns:repeat(2,1fr); }
-    .profile-hero { grid-template-columns:1fr; padding:20px 24px 60px; }
-    nav { padding:16px 24px; }
-    nav ul { display:none; }
-    .page-header { padding:120px 24px 60px; }
-    .team-section { padding:0 24px 80px; }
-  }
-  @media(max-width:560px) {
-    .team-grid { grid-template-columns:1fr; }
-  }
-</style>
+    .page-title span {
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 16px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title-line {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* Team grid */
+    .team-section {
+      position: relative;
+      z-index: 1;
+      padding: 20px 60px 120px;
+    }
+
+    .team-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Member card */
+    .member-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all .4s;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .member-card:nth-child(1)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    }
+
+    .member-card:nth-child(2)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+    }
+
+    .member-card:nth-child(3)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+    }
+
+    .member-card:nth-child(4)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    }
+
+    .member-card:nth-child(5)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-amber), transparent);
+    }
+
+    .member-card:nth-child(6)::before {
+      background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+    }
+
+    .member-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 245, 255, 0.25);
+      background: rgba(0, 245, 255, 0.03);
+    }
+
+    .member-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Photo area */
+    .card-photo {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--dark2), var(--dark3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .85;
+      transition: opacity .4s, transform .6s;
+    }
+
+    .member-card:hover .card-photo img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .photo-placeholder-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px dashed rgba(0, 245, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .photo-placeholder-text {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0, 245, 255, 0.3);
+    }
+
+    .add-photo-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 245, 255, 0.1);
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--neon-cyan);
+      letter-spacing: 1px;
+    }
+
+    .card-number {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-family: 'Orbitron', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 2px;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 24px;
+    }
+
+    .member-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .member-role {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 99px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .tag-cyan {
+      background: rgba(0, 245, 255, 0.08);
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      color: var(--neon-cyan);
+    }
+
+    .tag-pink {
+      background: rgba(255, 0, 200, 0.08);
+      border: 1px solid rgba(255, 0, 200, 0.2);
+      color: var(--neon-pink);
+    }
+
+    .tag-purple {
+      background: rgba(191, 0, 255, 0.08);
+      border: 1px solid rgba(191, 0, 255, 0.2);
+      color: var(--neon-purple);
+    }
+
+    .tag-green {
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      color: var(--neon-green);
+    }
+
+    .tag-amber {
+      background: rgba(255, 170, 0, 0.08);
+      border: 1px solid rgba(255, 170, 0, 0.2);
+      color: var(--neon-amber);
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      transition: color .3s;
+    }
+
+    .member-card:hover .card-cta {
+      color: var(--neon-cyan);
+    }
+
+    .cta-arrow {
+      transition: transform .3s;
+    }
+
+    .member-card:hover .cta-arrow {
+      transform: translateX(4px);
+    }
+
+    /* PROFILE PAGE */
+    .profile-page {
+      display: none;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .profile-page.active {
+      display: block;
+    }
+
+    .team-section.hidden {
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
+      padding: 0;
+      margin-bottom: 40px;
+      transition: color .3s;
+    }
+
+    .back-btn:hover {
+      color: var(--neon-cyan);
+    }
+
+    .profile-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 60px 80px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .profile-photo-box {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 245, 255, 0.15);
+      background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    }
+
+    .profile-photo-box img {
+      width: 100%;
+      display: block;
+      opacity: .9;
+    }
+
+    .profile-photo-placeholder {
+      height: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .profile-photo-placeholder .big-icon {
+      font-size: 60px;
+      opacity: .3;
+    }
+
+    .profile-photo-placeholder .hint {
+      font-size: 13px;
+      color: rgba(0, 245, 255, 0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .profile-glow {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(to top, var(--dark), transparent);
+      pointer-events: none;
+    }
+
+    .profile-info {
+      padding-top: 10px;
+    }
+
+    .profile-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 11px;
+      color: rgba(0, 245, 255, 0.5);
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+
+    .profile-name {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .profile-role {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .neon-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--neon-cyan), transparent);
+      margin-bottom: 28px;
+      opacity: .3;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .info-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 245, 255, 0.05);
+      border: 1px solid rgba(0, 245, 255, 0.12);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .info-pill .icon {
+      font-size: 16px;
+    }
+
+    .info-pill strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .section-tag-sm {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .profile-bio {
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 32px;
+    }
+
+    .profile-bio em {
+      color: rgba(255, 255, 255, 0.8);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .skill-chip {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      transition: all .3s;
+    }
+
+    .skill-chip:hover {
+      border-color: rgba(0, 245, 255, 0.4);
+      color: var(--neon-cyan);
+      background: rgba(0, 245, 255, 0.06);
+    }
+
+    .contrib-box {
+      background: rgba(0, 245, 255, 0.03);
+      border: 1px solid rgba(0, 245, 255, 0.12);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .contrib-box p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* Placeholder note */
+    .placeholder-note {
+      background: rgba(255, 170, 0, 0.06);
+      border: 1px dashed rgba(255, 170, 0, 0.25);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: rgba(255, 170, 0, 0.7);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(0, 245, 255, 0.08);
+      padding: 36px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .logo-small {
+      font-family: 'Orbitron', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media(max-width:900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-hero {
+        grid-template-columns: 1fr;
+        padding: 20px 24px 60px;
+      }
+
+      nav {
+        padding: 16px 24px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .page-header {
+        padding: 120px 24px 60px;
+      }
+
+      .team-section {
+        padding: 0 24px 80px;
+      }
+    }
+
+    @media(max-width:560px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
 
-<nav>
-  <a href="index.html" class="logo">TEAM∙X</a>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="team.html" class="active">Team</a></li>
-  </ul>
-</nav>
+  <nav>
+    <a href="index.html" class="logo">TEAM∙X</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+    </ul>
+  </nav>
 
-<!-- TEAM LISTING -->
-<div id="teamListing">
-  <div class="page-header" style="position:relative;z-index:1;">
-    <span class="page-tag">The Crew</span>
-    <h1 class="page-title">Meet Our <span>Team</span></h1>
-    <p class="page-sub">Six individuals. One powerful team. Click a card to explore.</p>
-    <div class="title-line"></div>
-  </div>
-
-  <section class="team-section">
-    <div class="team-grid">
-
-      <!-- MEMBER 1 — Full Example -->
-      <div class="member-card" onclick="showProfile(0)">
-        <div class="card-photo">
-          <img src="ChatGPT Image Mar 25, 2026, 10_59_08 PM.png" alt="Member 1"/>
-          <div class="card-number">01</div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">Dasari Sathwik</div>
-          <div class="member-role"> ·25R01A0476</div>
-          <div class="card-tags">
-            <span class="tag tag-cyan">active participation</span>
-            <span class="tag tag-purple">programing</span>
-            <span class="tag tag-purple">Learning</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
-      <!-- MEMBER 2 — Placeholder -->
-      <div class="member-card" onclick="showProfile(1)">
-        <div class="card-photo" style="background:linear-gradient(135deg,#0d0d22,#1a0a2e);">
-          <div class="photo-placeholder">
-            <div class="photo-placeholder-icon">📷</div>
-            <div class="photo-placeholder-text">Add Your Photo</div>
-          </div>
-          <div class="card-number">02</div>
-          <div class="add-photo-hint">+ Photo</div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">Devarakonda Sragvi</div>
-          <div class="member-role">.25R01A0477</div>
-          <div class="card-tags">
-            <span class="tag tag-pink">eating</span>
-            <span class="tag tag-amber">sleeping</span>
-            <span class="tag tag-amber">prabhas fan</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
-      <!-- MEMBER 3 — Placeholder -->
-      <div class="member-card" onclick="showProfile(2)">
-        <div class="card-photo" style="background:linear-gradient(135deg,#0d1622,#0a1a2e);">
-          <img src="ananya.jpeg" alt="Member 1"/>
-          
-          <div class="card-number">03</div>
-          <div class="add-photo-hint">+ Photo</div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">GALI ANANYA</div>
-          <div class="member-role">.25R01A0478</div>
-          <div class="card-tags">
-            <span class="tag tag-purple">dancing</span>
-            <span class="tag tag-cyan">singing</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
-      <!-- MEMBER 4 — Placeholder -->
-      <div class="member-card" onclick="showProfile(3)">
-        <div class="card-photo">
-          <img src="portfolio_pic.jpeg" alt="Member 1"/>
-          <div class="card-number">04</div>
-          <div class="add-photo-hint"></div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">Golapali Teja Sree</div>
-          <div class="member-role">.25R01A0479</div>
-          <div class="card-tags">
-            <span class="tag tag-green">topper</span>
-            <span class="tag tag-pink">9.5 gpa</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
-      <!-- MEMBER 5 — Placeholder -->
-      <div class="member-card" onclick="showProfile(4)">
-        <div class="card-photo" style="background:linear-gradient(135deg,#1a160a,#2e250a);">
-          <div class="photo-placeholder">
-            <div class="photo-placeholder-icon">📷</div>
-            <div class="photo-placeholder-text">Add Your Photo</div>
-          </div>
-          <div class="card-number">05</div>
-          <div class="add-photo-hint">+ Photo</div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">Gorrey Vivek Reddy</div>
-          <div class="member-role">.25R01A0480</div>
-          <div class="card-tags">
-            <span class="tag tag-amber">Introvert</span>
-            <span class="tag tag-purple">ff player</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
-      <!-- MEMBER 6 — Placeholder -->
-      <div class="member-card" onclick="showProfile(5)">
-        <div class="card-photo" style="background:linear-gradient(135deg,#1a0a16,#2e0a28);">
-          <div class="photo-placeholder">
-            <div class="photo-placeholder-icon">📷</div>
-            <div class="photo-placeholder-text">Add Your Photo</div>
-          </div>
-          <div class="card-number">06</div>
-          <div class="add-photo-hint">+ Photo</div>
-        </div>
-        <div class="card-body">
-          <div class="member-name">Gunthu Rohit</div>
-          <div class="member-role">.25R01A0481</div>
-          <div class="card-tags">
-            <span class="tag tag-pink">bgmi player</span>
-            <span class="tag tag-cyan">rohit model</span>
-          </div>
-          <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-
+  <!-- TEAM LISTING -->
+  <div id="teamListing">
+    <div class="page-header" style="position:relative;z-index:1;">
+      <span class="page-tag">The Crew</span>
+      <h1 class="page-title">Meet Our <span>Team</span></h1>
+      <p class="page-sub">Six individuals. One powerful team. Click a card to explore.</p>
+      <div class="title-line"></div>
     </div>
-  </section>
-</div>
 
-<!-- PROFILE VIEW (Member 1 example — duplicate & edit for others) -->
-<div class="profile-page" id="profileView" style="padding-top:100px;">
-  <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
-    <button class="back-btn" onclick="goBack()">← Back to Team</button>
+    <section class="team-section">
+      <div class="team-grid">
+
+        <!-- MEMBER 1 — Full Example -->
+        <div class="member-card" onclick="showProfile(0)">
+          <div class="card-photo">
+            <img src="ChatGPT Image Mar 25, 2026, 10_59_08 PM.png" alt="Member 1" />
+            <div class="card-number">01</div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">Dasari Sathwik</div>
+            <div class="member-role"> ·25R01A0476</div>
+            <div class="card-tags">
+              <span class="tag tag-cyan">active participation</span>
+              <span class="tag tag-purple">programing</span>
+              <span class="tag tag-purple">Learning</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+        <!-- MEMBER 2 — Placeholder -->
+        <div class="member-card" onclick="showProfile(1)">
+          <div class="card-photo" style="background:linear-gradient(135deg,#0d0d22,#1a0a2e);">
+            <div class="card-photo">
+              <img src="sragvy.jpeg" alt="Member 2" />
+              <div class="card-number">04</div>
+              <div class="add-photo-hint"></div>
+            </div>
+            <div class="card-number">02</div>
+            <div class="add-photo-hint">+ Photo</div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">Devarakonda Sragvi</div>
+            <div class="member-role">.25R01A0477</div>
+            <div class="card-tags">
+              <span class="tag tag-pink">eating</span>
+              <span class="tag tag-amber">sleeping</span>
+              <span class="tag tag-amber">prabhas fan</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+        <!-- MEMBER 3 — Placeholder -->
+        <div class="member-card" onclick="showProfile(2)">
+          <div class="card-photo" style="background:linear-gradient(135deg,#0d1622,#0a1a2e);">
+            <img src="ananya.jpeg" alt="Member 1" />
+
+            <div class="card-number">03</div>
+            <div class="add-photo-hint">+ Photo</div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">GALI ANANYA</div>
+            <div class="member-role">.25R01A0478</div>
+            <div class="card-tags">
+              <span class="tag tag-purple">dancing</span>
+              <span class="tag tag-cyan">singing</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+        <!-- MEMBER 4 — Placeholder -->
+        <div class="member-card" onclick="showProfile(3)">
+          <div class="card-photo">
+            <img src="portfolio_pic.jpeg" alt="Member 1" />
+            <div class="card-number">04</div>
+            <div class="add-photo-hint"></div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">Golapali Teja Sree</div>
+            <div class="member-role">.25R01A0479</div>
+            <div class="card-tags">
+              <span class="tag tag-green">topper</span>
+              <span class="tag tag-pink">9.5 gpa</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+        <!-- MEMBER 5 — Placeholder -->
+        <div class="member-card" onclick="showProfile(4)">
+          <div class="card-photo">
+            <img src="vivek.jpeg" alt="Member 1" />
+            <div class="card-number">04</div>
+            <div class="add-photo-hint"></div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">GORRE VIVEK REDDY</div>
+            <div class="member-role">.25R01A0480</div>
+            <div class="card-tags">
+              <span class="tag tag-amber">Introvert</span>
+              <span class="tag tag-purple">ff player</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+        <!-- MEMBER 6 — Placeholder -->
+        <div class="member-card" onclick="showProfile(5)">
+          <div class="card-photo" style="background:linear-gradient(135deg,#1a0a16,#2e0a28);">
+            <div class="card-photo">
+              <img src="rohit.jpeg" alt="Member 6" />
+              <div class="card-number">04</div>
+              <div class="add-photo-hint"></div>
+            </div>
+            <div class="card-number">06</div>
+            <div class="add-photo-hint">+ Photo</div>
+          </div>
+          <div class="card-body">
+            <div class="member-name">Gunthu Rohit</div>
+            <div class="member-role">.25R01A0481</div>
+            <div class="card-tags">
+              <span class="tag tag-pink">bgmi player</span>
+              <span class="tag tag-cyan">rohit model</span>
+            </div>
+            <div class="card-cta">View Profile <span class="cta-arrow">→</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </div>
 
-  <!-- PROFILE 0: Dasari Sathwik -->
-  <div id="profile-0" style="display:none;">
-    <div class="profile-hero">
-      <div class="profile-photo-box">
-        <img src="ChatGPT Image Mar 25, 2026, 10_59_08 PM.png" alt="Dasari Sathwik"/>
-        <div class="profile-glow"></div>
-      </div>
-      <div class="profile-info">
-        <div class="profile-num">MEMBER 01</div>
-        <div class="profile-name">Dasari Sathwik</div>
-        <div class="profile-role"></div>
-        <div class="neon-divider"></div>
-        <div class="info-row">
-          <div class="info-pill"><span class="icon">📍</span><span>hydrabad,telengana, India</span></div>
-          <div class="info-pill"><span class="icon">✉️</span><strong>alex@team.com</strong></div>
-        </div>
-        <span class="section-tag-sm">About Me</span>
-        <p class="profile-bio">Passionate about building impactful projects and leading teams. I believe <em>great work starts with great communication</em>. I bring structure, strategy, and energy to everything our team does.</p>
-        <span class="section-tag-sm">Skills</span>
-        <div class="skills-grid">
-          <span class="skill-chip">programing</span>
-          <span class="skill-chip">learning</span>
-          <span class="skill-chip">Communication</span>
-          <span class="skill-chip">Project building</span>
-          <span class="skill-chip">Problem Solving</span>
-        </div>
-        <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">
-          <p>Led sprint planning and task delegation, coordinated weekly check-ins, managed the project timeline, and ensured all deliverables were completed on schedule.</p>
-        </div>
-      </div>
+  <!-- PROFILE VIEW (Member 1 example — duplicate & edit for others) -->
+  <div class="profile-page" id="profileView" style="padding-top:100px;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <button class="back-btn" onclick="goBack()">← Back to Team</button>
     </div>
-  </div>
 
-  <!-- PROFILES 1–5: Editable Placeholders -->
-  <div id="profile-1" style="display:none;">
-    <div class="profile-hero">
-      <div class="profile-photo-box">
-                <img src="" alt="Sragvi"/>
-        <div class="profile-glow"></div>
-      </div>
-      <div class="profile-info">
-        <div class="placeholder-note">✏️ This is a template — fill in your own details below.</div>
-        <div class="profile-num">MEMBER 02</div>
-        <div class="profile-name">Devarakonda Sragvi</div>
-        <!-- <div class="profile-role">Your Role</div> -->
-        <div class="neon-divider"></div>
-        <div class="info-row">
-          <div class="info-pill"><span class="icon">📍</span><span>Nalagonda</span></div>
-          <div class="info-pill"><span class="icon">✉️</span><strong>devarakondhasravi@gmail.com</strong></div>
+    <!-- PROFILE 0: Dasari Sathwik -->
+    <div id="profile-0" style="display:none;">
+      <div class="profile-hero">
+        <div class="profile-photo-box">
+          <img src="ChatGPT Image Mar 25, 2026, 10_59_08 PM.png" alt="Dasari Sathwik" />
+          <div class="profile-glow"></div>
         </div>
-        <span class="section-tag-sm">About Me</span>
-        <p class="profile-bio">I am a passionate and dedicated individual who believes in continuous learning and growth. I enjoy exploring new ideas, working on creative projects, and solving real-world problems. With a positive mindset and strong determination, I always strive to give my best in everything I do. I am a team player who values collaboration and communication, and I am always eager to take on new challenges.</p>
-        <span class="section-tag-sm">Skills</span>
-        <div class="skills-grid">
-          <span class="skill-chip">singing</span>
-          <span class="skill-chip">dancing</span>
-          <span class="skill-chip">programing</span>
-        </div>
-        <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">Task distribution</p>
-Timeline management</p>
-Team coordination</p>
+        <div class="profile-info">
+          <div class="profile-num">MEMBER 01</div>
+          <div class="profile-name">Dasari Sathwik</div>
+          <div class="profile-role"></div>
+          <div class="neon-divider"></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>hydrabad,telengana, India</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>alex@team.com</strong></div>
+          </div>
+          <span class="section-tag-sm">About Me</span>
+          <p class="profile-bio">Passionate about building impactful projects and leading teams. I believe <em>great
+              work starts with great communication</em>. I bring structure, strategy, and energy to everything our team
+            does.</p>
+          <span class="section-tag-sm">Skills</span>
+          <div class="skills-grid">
+            <span class="skill-chip">programing</span>
+            <span class="skill-chip">learning</span>
+            <span class="skill-chip">Communication</span>
+            <span class="skill-chip">Project building</span>
+            <span class="skill-chip">Problem Solving</span>
+          </div>
+          <span class="section-tag-sm">My Contribution</span>
+          <div class="contrib-box">
+            <p>Led sprint planning and task delegation, coordinated weekly check-ins, managed the project timeline, and
+              ensured all deliverables were completed on schedule.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div id="profile-2" style="display:none;">
-    <div class="profile-hero">
-      <div class="profile-photo-box">
-                <img src="ananya1.jpeg" alt="ananya"/>
-        <div class="profile-glow"></div>
-      </div>
-      <div class="profile-info">
-        <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
-        <div class="profile-num">MEMBER 03</div>
-        <div class="profile-name">GALI ANANYA</div>
-        <!-- <div class="profile-role">Your Role</div> -->
-        <div class="neon-divider"></div>
-        <div class="info-row"><div class="info-pill"><span class="icon">📍</span><span>karimnagar</span></div><div class="info-pill"><span class="icon">✉️</span><strong>galiananya18@gmail.com</strong></div></div>
-        <span class="section-tag-sm">About Me</span>
-        <p class="profile-bio">Im passionate about learning new things and improving myself. I enjoy exploring new ideas, especially in areas that help me grow both personally and academically.</p>
-        <span class="section-tag-sm">Skills</span>
-        <div class="skills-grid"><span class="skill-chip">Dancing</span><span class="skill-chip">singing</span><span class="skill-chip">Learning</span></div>
-        <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">Built prediction model</P>
-          Data preprocessing</P>
-          Model testing & evaluation</p></div>
+    <!-- PROFILES 1–5: Editable Placeholders -->
+    <div id="profile-1" style="display:none;">
+      <div class="profile-hero">
+        <div class="profile-photo-box">
+          <img src="sragvy.jpeg" alt="Sragvi" />
+          <div class="profile-glow"></div>
+        </div>
+        <div class="profile-info">
+          <!-- <div class="placeholder-note">✏️ This is a template — fill in your own details below.</div> -->
+          <div class="profile-num">MEMBER 02</div>
+          <div class="profile-name">Devarakonda Sragvi</div>
+          <!-- <div class="profile-role">Your Role</div> -->
+          <div class="neon-divider"></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>Nalagonda</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>devarakondhasravi@gmail.com</strong></div>
+          </div>
+          <span class="section-tag-sm">About Me</span>
+          <p class="profile-bio">I am a passionate and dedicated individual who believes in continuous learning and
+            growth. I enjoy exploring new ideas, working on creative projects, and solving real-world problems. With a
+            positive mindset and strong determination, I always strive to give my best in everything I do. I am a team
+            player who values collaboration and communication, and I am always eager to take on new challenges.</p>
+          <span class="section-tag-sm">Skills</span>
+          <div class="skills-grid">
+            <span class="skill-chip">singing</span>
+            <span class="skill-chip">dancing</span>
+            <span class="skill-chip">programing</span>
+          </div>
+          <span class="section-tag-sm">My Contribution</span>
+          <div class="contrib-box">Task distribution</p>
+            Timeline management</p>
+            Team coordination</p>
+          </div>
         </div>
       </div>
     </div>
-    
+
+    <div id="profile-2" style="display:none;">
+      <div class="profile-hero">
+        <div class="profile-photo-box">
+          <img src="ananya1.jpeg" alt="ananya" />
+          <div class="profile-glow"></div>
+        </div>
+        <div class="profile-info">
+          <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
+          <div class="profile-num">MEMBER 03</div>
+          <div class="profile-name">GALI ANANYA</div>
+          <!-- <div class="profile-role">Your Role</div> -->
+          <div class="neon-divider"></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>karimnagar</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>galiananya18@gmail.com</strong></div>
+          </div>
+          <span class="section-tag-sm">About Me</span>
+          <p class="profile-bio">Im passionate about learning new things and improving myself. I enjoy exploring new
+            ideas, especially in areas that help me grow both personally and academically.</p>
+          <span class="section-tag-sm">Skills</span>
+          <div class="skills-grid"><span class="skill-chip">Dancing</span><span class="skill-chip">singing</span><span
+              class="skill-chip">Learning</span></div>
+          <span class="section-tag-sm">My Contribution</span>
+          <div class="contrib-box">Built prediction model</P>
+            Data preprocessing</P>
+            Model testing & evaluation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="profile-3" style="display:none;">
       <div class="profile-hero">
-         <div class="profile-photo-box">
-                <img src="portfolio_pic.jpeg" alt="ananya"/>
-        <div class="profile-glow"></div>
-      </div>
+        <div class="profile-photo-box">
+          <img src="portfolio_pic.jpeg" alt="ananya" />
+          <div class="profile-glow"></div>
+        </div>
         <!-- <div class="profile-photo-box"><div class="profile-photo-placeholder"><span class="big-icon">📷</span><span class="hint">Replace with your photo</span></div></div> -->
         <div class="profile-info">
           <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
@@ -481,9 +1012,13 @@ Team coordination</p>
           <div class="profile-name">Gollapalli Teja Sree</div>
           <!-- <div class="profile-role">Your Role</div> -->
           <div class="neon-divider"></div>
-          <div class="info-row"><div class="info-pill"><span class="icon">📍</span><span>Your City</span></div><div class="info-pill"><span class="icon">✉️</span><strong>gollapalliteja25@gmail.com</strong></div></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>Your City</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>gollapalliteja25@gmail.com</strong></div>
+          </div>
           <span class="section-tag-sm">About Me</span>
-          <p class="profile-bio"> <p>✨ My Interests</p>
+          <p class="profile-bio">
+          <p>✨ My Interests</p>
           <p>🧩 Problem solving: Finding efficient solutions to complex challenges</p>
           <p>🧠 Learning new things: Expanding my skills and exploring new technologies</p>
           <p>💃 Dancing: Expressing energy and emotions through movement</p>
@@ -497,89 +1032,111 @@ Team coordination</p>
           Maharashtra</p>
           ...Been to a few cities, but mostly living in chrome tabs! 💻</p>
           <span class="section-tag-sm">Skills</span>
-          <div class="skills-grid"><span class="skill-chip">programing</span><span class="skill-chip">Dancing</span><span class="skill-chip">Problem solving</span></div>
+          <div class="skills-grid"><span class="skill-chip">programing</span><span
+              class="skill-chip">Dancing</span><span class="skill-chip">Problem solving</span></div>
           <span class="section-tag-sm"></span>
           <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">Designed UI using React</p>
-Implemented responsive design</p>
-Connected frontend with backend</p></div>
+          <div class="contrib-box">Designed UI using React</p>
+            Implemented responsive design</p>
+            Connected frontend with backend</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="profile-4" style="display:none;">
-    <div class="profile-hero">
-      <div class="profile-photo-box"><div class="profile-photo-placeholder"><span class="big-icon">📷</span><span class="hint">Replace with your photo</span></div></div>
-      <div class="profile-info">
-        <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
-        <div class="profile-num">MEMBER 05</div>
-        <div class="profile-name">Gorrey Vivek Reddy</div>
-        <!-- <div class="profile-role">Your Role</div> -->
-        <div class="neon-divider"></div>
-        <div class="info-row"><div class="info-pill"><span class="icon">📍</span><span>sangareddy</span></div><div class="info-pill"><span class="icon">✉️</span><strong>Gorreyvivekreddy@gmail.com</strong></div></div>
-        <span class="section-tag-sm">About Me</span>
-        <p class="profile-bio">I am an introverted person who enjoys spending time playing games and exploring virtual worlds. Gaming helps me relax, think strategically, and improve my focus. I may be quiet, but I am observant, thoughtful, and always learning in my own way.</p>
-        <span class="section-tag-sm">Skills</span>
-        <div class="skills-grid"><span class="skill-chip">Gaming</span><span class="skill-chip">living</span><span class="skill-chip">learning</span></div>
-        <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">Handled testing and debugging with a focused approach</p>
-Analyzed system performance and suggested improvements</p>
-Solved issues using strong logical and strategic thinking</p></div>
+    <div id="profile-4" style="display:none;">
+      <div class="profile-hero">
+        <div class="profile-photo-box">
+          <img src="vivek.jpeg" alt="ananya" />
+          <div class="profile-glow"></div>
+        </div>
+        <div class="profile-info">
+          <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
+          <div class="profile-num">MEMBER 05</div>
+          <div class="profile-name">GORRE VIVEK REDDY</div>
+          <!-- <div class="profile-role">Your Role</div> -->
+          <div class="neon-divider"></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>sangareddy</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>Gorreyvivekreddy@gmail.com</strong></div>
+          </div>
+          <span class="section-tag-sm">About Me</span>
+          <p class="profile-bio">I am an introverted person who enjoys spending time playing games and exploring virtual
+            worlds. Gaming helps me relax, think strategically, and improve my focus. I may be quiet, but I am
+            observant, thoughtful, and always learning in my own way.</p>
+          <span class="section-tag-sm">Skills</span>
+          <div class="skills-grid"><span class="skill-chip">Gaming</span><span class="skill-chip">living</span><span
+              class="skill-chip">learning</span></div>
+          <span class="section-tag-sm">My Contribution</span>
+          <div class="contrib-box">Handled testing and debugging with a focused approach</p>
+            Analyzed system performance and suggested improvements</p>
+            Solved issues using strong logical and strategic thinking</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="profile-5" style="display:none;">
-    <div class="profile-hero">
-      <div class="profile-photo-box"><div class="profile-photo-placeholder"><span class="big-icon">📷</span><span class="hint">Replace with your photo</span></div></div>
-      <div class="profile-info">
-        <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
-        <div class="profile-num">MEMBER 06</div>
-        <div class="profile-name">Gunthu Rohit</div>
-        <!-- <div class="profile-role">Your Role</div> -->
-        <div class="neon-divider"></div>
-        <div class="info-row"><div class="info-pill"><span class="icon">📍</span><span>hydrabad</span></div><div class="info-pill"><span class="icon">✉️</span><strong>gunthurohit12@gmail.com</strong></div></div>
-        <span class="section-tag-sm">About Me</span>
-        <p class="profile-bio">I am a passionate gamer who enjoys exploring new challenges and improving my skills through strategy and practice. Gaming has helped me develop quick thinking, focus, and creativity.</p>
-        <span class="section-tag-sm">Skills</span>
-        <div class="skills-grid"><span class="skill-chip">Gaming</span><span class="skill-chip">traveler</span><span class="skill-chip"></span></div>
-        <span class="section-tag-sm">My Contribution</span>
-        <div class="contrib-box">Assisted in testing and optimizing performance</p>
-Helped make the project more interactive and dynamic</p></div>
+    <div id="profile-5" style="display:none;">
+      <div class="profile-hero">
+        <div class="profile-photo-box">
+          <img src="rohit.jpeg" alt="ananya" />
+          <div class="profile-glow"></div>
+        </div>
+        <div class="profile-info">
+          <!-- <div class="placeholder-note">✏️ Fill in your own details.</div> -->
+          <div class="profile-num">MEMBER 06</div>
+          <div class="profile-name">Gunthu Rohit</div>
+          <!-- <div class="profile-role">Your Role</div> -->
+          <div class="neon-divider"></div>
+          <div class="info-row">
+            <div class="info-pill"><span class="icon">📍</span><span>hydrabad</span></div>
+            <div class="info-pill"><span class="icon">✉️</span><strong>gunthurohit12@gmail.com</strong></div>
+          </div>
+          <span class="section-tag-sm">About Me</span>
+          <p class="profile-bio">I am a passionate gamer who enjoys exploring new challenges and improving my skills
+            through strategy and practice. Gaming has helped me develop quick thinking, focus, and creativity.</p>
+          <span class="section-tag-sm">Skills</span>
+          <div class="skills-grid"><span class="skill-chip">Gaming</span><span class="skill-chip">traveler</span>programing<span
+              class="skill-chip"></span></div>
+          <span class="section-tag-sm">My Contribution</span>
+          <div class="contrib-box">Assisted in testing and optimizing performance</p>
+            Helped make the project more interactive and dynamic</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-</div><!-- end profileView -->
+  </div><!-- end profileView -->
 
-<footer>
-  <div class="logo-small">TEAM∙X</div>
-  <p>© 2024 Group Portfolio · All Rights Reserved</p>
-</footer>
+  <footer>
+    <div class="logo-small">TEAM∙X</div>
+    <p>© 2024 Group Portfolio · All Rights Reserved</p>
+  </footer>
 
-<script>
-  // Cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-  (function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function a() { rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(a); })();
 
-  function showProfile(n) {
-    document.getElementById('teamListing').style.display = 'none';
-    const pv = document.getElementById('profileView');
-    pv.classList.add('active');
-    for(let i=0;i<6;i++) document.getElementById('profile-'+i).style.display='none';
-    document.getElementById('profile-'+n).style.display='block';
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
+    function showProfile(n) {
+      document.getElementById('teamListing').style.display = 'none';
+      const pv = document.getElementById('profileView');
+      pv.classList.add('active');
+      for (let i = 0; i < 6; i++) document.getElementById('profile-' + i).style.display = 'none';
+      document.getElementById('profile-' + n).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-  function goBack() {
-    document.getElementById('teamListing').style.display = 'block';
-    document.getElementById('profileView').classList.remove('active');
-    for(let i=0;i<6;i++) document.getElementById('profile-'+i).style.display='none';
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-</script>
+    function goBack() {
+      document.getElementById('teamListing').style.display = 'block';
+      document.getElementById('profileView').classList.remove('active');
+      for (let i = 0; i < 6; i++) document.getElementById('profile-' + i).style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
+
 </html>
